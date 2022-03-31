@@ -4102,20 +4102,20 @@ function deleteLet(){
   if(boxNum < 4 && boxNum >= 0){
   boxNum = boxNum -1;
   }
-  if(boxNum < 8 && boxNum > 4){
+  if(boxNum < 8 && boxNum >= 4){
   boxNum = boxNum -1;
   console.log(boxNum);
   }
-  if(boxNum < 12 && boxNum > 8){
+  if(boxNum < 12 && boxNum >= 8){
   boxNum = boxNum -1;
   }
-  if(boxNum < 16 && boxNum > 12){
+  if(boxNum < 16 && boxNum >= 12){
   boxNum = boxNum -1;
   }
-  if(boxNum < 20 && boxNum > 16){
+  if(boxNum < 20 && boxNum >= 16){
   boxNum = boxNum -1;
   }
-  if(boxNum < 24 && boxNum > 20){
+  if(boxNum < 24 && boxNum >= 20){
   boxNum = boxNum -1;
   }
 }
