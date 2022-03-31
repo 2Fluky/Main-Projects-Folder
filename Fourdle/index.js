@@ -4099,7 +4099,7 @@ function typeLetter(key){
 
 function deleteLet(){
   let del = document.querySelectorAll(".letter-box")[boxNum].innerHTML = " ";
-  if(boxNum < 4 && boxNum > 0){
+  if(boxNum < 4 && boxNum >= 0){
   boxNum = boxNum -1;
   }
   if(boxNum < 8 && boxNum > 4){
