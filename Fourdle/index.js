@@ -4104,6 +4104,7 @@ function deleteLet(){
   }
   if(boxNum < 8 && boxNum > 4){
   boxNum = boxNum -1;
+  //epicgamer
   console.log(boxNum);
   }
   if(boxNum < 12 && boxNum > 8){
