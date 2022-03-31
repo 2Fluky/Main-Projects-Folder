@@ -1,0 +1,101 @@
+h1 {
+font-size: 4rem;
+font-family: 'nyt-karnakcondensed';
+font-weight: 700;
+text-align: center;
+}
+
+
+.keyboard-button {
+font-size: 2rem;
+font-weight: 700;
+padding: 0.5rem;
+width: 70px;
+height: 70px;
+margin: 3px 2px;
+border-radius: 5px;
+border-color: rgba(0, 0, 0, 0);
+background-color: #d3d6da;
+cursor: pointer;
+text-transform: uppercase;
+}
+
+.keyboard-button:hover {
+  background-color: rgba(0, 0, 0, .3)
+}
+
+.keyboard-button:active {
+  box-shadow: 0 3px 4px 0 #222;
+  opacity: .9;
+  background-color: rgba(0, 0, 0, .6)
+}
+
+.pressed {
+  box-shadow: 0 3px 4px 0 #222;
+  opacity: .9;
+  background-color: rgba(0, 0, 0, .6)
+}
+
+.Backspace {
+font-size: 2rem;
+font-weight: 700;
+padding: 0.5rem;
+width: 130px;
+height: 70px;
+margin: 3px 2px;
+border-radius: 5px;
+border-color: rgba(0, 0, 0, 0);
+background-color: #d3d6da;
+cursor: pointer;
+text-transform: uppercase;
+}
+
+.Enter {
+font-size: 2rem;
+font-weight: 700;
+padding: 0.5rem;
+width: 130px;
+height: 70px;
+margin: 3px 2px;
+border-radius: 5px;
+border-color: rgba(0, 0, 0, 0);
+background-color: #d3d6da;
+cursor: pointer;
+text-transform: uppercase;
+}
+
+.letter-box {
+  border: 2px solid;
+  border-color: rgba(0, 0, 0, .4);
+  border-radius: 3px;
+  margin: 2px;
+  font-size: 2.5rem;
+  font-weight: 700;
+  height: 100px;
+  width: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-transform: uppercase;
+}
+
+.filled-box {
+  border: 2px solid black;
+}
+
+.letter-row {
+  display: flex;
+}
+
+#keyboard {
+margin: 5rem 0;
+display: flex;
+flex-direction: column;
+align-items: center;
+}
+
+#gameboard {
+display: flex;
+align-items: center;
+flex-direction: column;
+}

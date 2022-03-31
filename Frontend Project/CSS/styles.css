@@ -1,0 +1,135 @@
+body{
+  background-color: hsl(225, 100%, 94%);
+}
+
+h1{
+font-weight: 900;
+color: hsl(223, 47%, 23%);
+position: absolute;
+left: 180px;
+top: 365px;
+font-size: 42px;
+font-family: 'Red Hat Display', cursive;
+}
+
+
+.main-div{
+height: 1200px;
+}
+
+.proceed-to-payment{
+position: absolute;
+left: 72px;
+bottom: 145px;
+border-radius: 10px;
+width: 79%;
+height: 7%;
+filter: drop-shadow(0 20px 3px rgba(102, 51, 153, .15));
+background-color: hsl(245, 75%, 52%);
+}
+
+.payment-box{
+position: absolute;
+left: 72px;
+bottom: 260px;
+border-radius: 10px;
+width: 79%;
+height: 13%;
+background-color: hsl(225, 100%, 98%);
+}
+
+.payment-info-background{
+position: relative;
+top: -675px;
+width: 27%;
+height: 1000px;
+margin: auto;
+background-color: white;
+border-radius: 20px;
+}
+
+#hero-illustration{
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  width: 100%;
+  height: 33%;
+  margin: auto;
+}
+
+#music-note-icon{
+position: absolute;
+height: 50%;
+top: 35px;
+left: 30px;
+}
+
+#background-pattern{
+position: relative;
+top: -150px;
+left: -10px;
+width: 102%;
+}
+
+#info{
+  font-weight: 500;
+  text-align: center;
+  line-height: 35px;
+  width: 470px;
+  color: hsl(224, 23%, 55%);
+  position: absolute;
+  left: 110px;
+  top: 475px;
+  font-size: 24px;
+  font-family: 'Red Hat Display', cursive;
+}
+
+#payment-text{
+color: white;
+position: absolute;
+font-weight: 700;
+left: 150px;
+bottom: -4px;
+font-size: 24px;
+font-family: 'Red Hat Display', cursive;
+}
+
+#cancel-order{
+  color: grey;
+  position: absolute;
+  font-weight: 700;
+  left: 270px;
+  bottom: 40px;
+  font-size: 24px;
+  font-family: 'Red Hat Display', cursive;
+}
+
+#annual-plan{
+  color: hsl(223, 47%, 23%);
+  position: absolute;
+  font-weight: 700;
+  left: 120px;
+  bottom: 42px;
+  font-size: 24px;
+  font-family: 'Red Hat Display', cursive;
+}
+
+#year-price{
+  font-weight: 500;
+  color: hsl(224, 23%, 55%);
+  position: absolute;
+  left: 120px;
+  bottom: 5px;
+  font-size: 24px;
+  font-family: 'Red Hat Display', cursive;
+}
+
+#change{
+  font-weight: 500;
+  color: darkblue;
+  text-decoration: underline;
+  position: absolute;
+  left: 400px;
+  bottom: 25px;
+  font-size: 24px;
+  font-family: 'Red Hat Display', cursive;
+}

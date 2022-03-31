@@ -1,0 +1,17 @@
+body{
+  text-align: center;
+}
+h1{
+  width: 10%;
+  margin: 0 auto;
+}
+p{
+  display: inline-block;
+}
+span{
+  text-decoration: underline;
+  display: none;
+}
+.top-container{
+  background-color: Lightblue;
+}

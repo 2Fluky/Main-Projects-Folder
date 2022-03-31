@@ -1,0 +1,80 @@
+/* This style sheet can be used to override
+any element in bootstrap */
+header{
+background-color: #EDEDED;
+}
+
+.d-md-flex-flex-md-equal-w-100-my-md-3-ps-md-31{
+position: relative;
+left: 15px;
+width: 1270px;
+display: inline-block;
+}
+
+.d-md-flex-flex-md-equal-w-100-my-md-3-ps-md-32{
+position: relative;
+left: 15px;
+width: 1270px;
+display: inline-block;
+}
+
+.d-md-flex-flex-md-equal-w-100-my-md-3-ps-md-33{
+position: relative;
+left: 15px;
+top: 10px;
+width: 1270px;
+display: inline-block;
+}
+
+.d-md-flex-flex-md-equal-w-100-my-md-3-ps-md-34{
+position: relative;
+left: 15px;
+top: 10px;
+width: 1270px;
+display: inline-block;
+}
+
+#spongebob-header-tee{
+height: 100%;
+position: absolute;
+left: 120px;
+bottom: -120px;
+mix-blend-mode: multiply;
+}
+
+#spongebob-header-hat{
+mix-blend-mode: multiply;
+height: 70%;
+position: absolute;
+right:220px;
+bottom: 80px;
+}
+
+#spongebob-tee{
+height: 53%;
+position: absolute;
+right: 490px;
+bottom: 10px;
+}
+
+#spongebob-hoodie{
+  height: 55%;
+  position: absolute;
+  right: 480px;
+  bottom: 5px;
+  mix-blend-mode: multiply;
+}
+
+#spongebob-watch{
+  height: 50%;
+  position: absolute;
+  right: 510px;
+  bottom: 15px;
+}
+
+#spongebob-shoes{
+  height: 70%;
+  position: absolute;
+  right: 450px;
+  bottom: -40px;
+}

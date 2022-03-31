@@ -1,0 +1,30 @@
+div{
+  width: 200px;
+  height: 200px;
+}
+h1{
+  background-color: red;
+}
+span{
+  background-color: pink;
+}
+.one{
+  background-color: grey;
+/*  display: inline-block; */
+}
+.two{
+  background-color: yellow;
+  position: relative;
+  left: 100px;
+  bottom: 150px
+  /* display: inline-block; */
+    z-index: 1;
+}
+.three{
+  background-color: black;
+  position: relative;
+  left: 200px;
+  bottom: 300px;
+  /* display: inline-block; */
+  color: white;
+}

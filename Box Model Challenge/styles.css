@@ -1,0 +1,29 @@
+div{
+  height:200px;
+  width:200px;
+}
+
+h1{
+  font-size: 35px;
+}
+
+.box-1{
+background-color: lightgreen;
+border-style: solid;
+border-width: 10px;
+padding: 20px;
+}
+
+.box-2{
+  margin-left:260px;
+background-color: aquamarine;
+border-style: solid;
+border-width: 20px;
+}
+
+.box-3{
+margin-left:500px;
+background-color: aqua;
+border-style: solid;
+border-width: 10px;
+}

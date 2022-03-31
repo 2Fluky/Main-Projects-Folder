@@ -1,0 +1,38 @@
+/**Tag Selector**/
+body{
+  text-align: center;
+  background-color:#C68B59;
+}
+h1{
+  color:Black;
+  font-size: 75px;
+  text-decoration:underline;
+
+}
+hr{
+  border-style:solid;
+  border-width:5px;
+  color:white;
+  outline-color:black;
+  outline-style: solid;
+  height:2px;
+}
+/**Class Selector**/
+.middle-block {
+  background-color:#FCDEC0;
+}
+.list-title{
+  font-size: 45px;
+}
+.list-box{
+  border-style:dashed;
+  text-align: center;
+  width:40%;
+  margin-left:760px;
+  background-color:rgba(252,222,192,.2);
+}
+/**ID Selector**/
+#middle-picture {
+  box-shadow: 3px 3px 3px;
+  border-style:double;
+}
