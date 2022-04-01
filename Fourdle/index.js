@@ -3998,14 +3998,11 @@ const WORDS = [
   "zyme",
 ]
 const NUM_OF_GUESSES = 6;
-var boxNum = -1;
-//var guessesLeft = NUM_OF_GUESSES - turnsTaken;
-//var turnsTake = 0;
-//var currentGuess = [];
-var rowSpaces = 0;
-var rightGuess = WORDS[Math.floor(Math.random() * WORDS.length)];
-
-rightGuess.toString();
+var nextLetter = 0;
+var guessesLeft = NUM_OF_GUESSES;
+var currentGuess = [];
+var word = WORDS[Math.floor(Math.random() * WORDS.length)];
+var rightGuess = word.toString();
 
 console.log(WORDS);
 
@@ -4069,7 +4066,6 @@ function buttonAnimation(currentKey){
     currentKey = "Enter";
   }
   var activateButton = document.querySelector("." + currentKey);
-  console.log(activateButton);
   activateButton.classList.add("pressed");
   setTimeout(function(){
     activateButton.classList.remove("pressed");
@@ -4077,55 +4073,87 @@ function buttonAnimation(currentKey){
 }
 
 function typeLetter(key){
-  if(boxNum < (rowSpaces + 3)){
-    boxNum = boxNum + 1;
-    console.log(boxNum);
-    let turn = document.querySelectorAll(".letter-box")[boxNum].innerHTML = key
-    if(boxNum == 0 || boxNum == 4 || boxNum == 8 || boxNum == 12 || boxNum == 16 || boxNum == 20){
-      lett1 = turn;
-    }
-    if(boxNum == 1 || boxNum == 5 || boxNum == 9 || boxNum == 13 || boxNum == 17 || boxNum == 21){
-      lett2 = turn;
-    }
-    if(boxNum == 2 || boxNum == 6 || boxNum == 10 || boxNum == 14 || boxNum == 18 || boxNum == 22){
-      lett3 = turn;
-    }
-    if(boxNum == 3 || boxNum == 7 || boxNum == 11 || boxNum == 15 || boxNum == 19 || boxNum == 23){
-      lett4 = turn;
-    }
+  if (nextLetter == 4) {
 
+  }else{
+    key = key.toLowerCase()
+    let row = document.querySelectorAll(".letter-row")[6 - guessesLeft];
+    let box = row.children[nextLetter];
+    box.innerHTML = key;
+    box.classList.add("filled-box");
+    currentGuess.push(key);
+    nextLetter = nextLetter + 1;
   }
+
 }
 
 function deleteLet(){
-  let del = document.querySelectorAll(".letter-box")[boxNum].innerHTML = " ";
-  if(boxNum < 4 && boxNum >= 0){
-  boxNum = boxNum -1;
-  }
-  if(boxNum < 8 && boxNum >= 4){
-  boxNum = boxNum -1;
-  console.log(boxNum);
-  }
-  if(boxNum < 12 && boxNum >= 8){
-  boxNum = boxNum -1;
-  }
-  if(boxNum < 16 && boxNum >= 12){
-  boxNum = boxNum -1;
-  }
-  if(boxNum < 20 && boxNum >= 16){
-  boxNum = boxNum -1;
-  }
-  if(boxNum < 24 && boxNum >= 20){
-  boxNum = boxNum -1;
-  }
+  let row = document.querySelectorAll(".letter-row")[6 - guessesLeft];
+  let box = row.children[nextLetter - 1];
+  box.innerHTML = " ";
+  box.classList.remove("filled-box");
+  currentGuess.pop();
+  nextLetter = nextLetter - 1;
 }
 
 function checkGuess(){
-  let playerGuess = (lett1 + lett2 + lett3 + lett4);
-  if(playerGuess == rightGuess){
-    alert("You win!");
-  }else{
-    rowSpaces = rowSpaces + 4;
-  }
+    let row = document.getElementsByClassName("letter-row")[6 - guessesLeft];
+    let guessString = '';
 
+    for(const val of currentGuess){
+          guessString += val
+    }
+
+    if (guessString.length != 4) {
+          alert("Not enough letters!");
+          return
+    }
+    else if (WORDS.includes(guessString) == false) {
+          alert("Word not in list!");
+          return
+    }
+
+    for (let i = 0; i < 4; i++) {
+       let letterColor = ''
+       let box = row.children[i]
+       let letter = currentGuess[i]
+
+       let letterPosition = rightGuess.indexOf(currentGuess[i])
+
+       if(letterPosition == -1){
+           letterColor = 'grey'
+       }else{
+           if(currentGuess[i] == rightGuess[i]){
+
+               letterColor = 'green'
+           }else{
+
+               letterColor = 'yellow'
+           }
+
+           rightGuess[letterPosition] = "#"
+       }
+
+       let delay = 250 * i
+       setTimeout(()=> {
+
+           box.style.backgroundColor = letterColor
+       }, delay)
+   }
+
+
+    if(guessString == rightGuess){
+    alert("You win!");
+    guessesLeft = -1
+
+    }else{
+
+    guessesLeft = guessesLeft - 1;
+    currentGuess = [];
+    nextLetter = 0;
+    }
+
+    if(guessesLeft == 0){
+        alert("You lose" + "\n" + "\n" + "The word was: " + rightGuess)
+    }
 }
