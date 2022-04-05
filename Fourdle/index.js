@@ -4004,8 +4004,6 @@ var currentGuess = [];
 var word = WORDS[Math.floor(Math.random() * WORDS.length)];
 var rightGuess = word.toString();
 
-console.log(WORDS);
-
 function createBoard(){
     let board = document.getElementById("gameboard");
 
@@ -4023,7 +4021,6 @@ function createBoard(){
     }
 }
 
-console.log(rightGuess);
 
 createBoard();
 
@@ -4031,7 +4028,6 @@ var keys = document.querySelectorAll(".keyboard-button").length;
   for(var i=0; i<keys; i++){
       document.querySelectorAll(".keyboard-button")[i].addEventListener("click", function (){
         var buttonInnerHTML = this.innerHTML;
-        console.log(buttonInnerHTML);
         buttonAnimation(buttonInnerHTML);
         if(buttonInnerHTML != "enter" && buttonInnerHTML != "del"){
         typeLetter(buttonInnerHTML);
@@ -4105,46 +4101,56 @@ function checkGuess(){
     }
 
     if (guessString.length != 4) {
-          alert("Not enough letters!");
+      let delay = 200
+      setTimeout(()=> {
+        alert("Not enough letters!");
+      }, delay)
           return
     }
     else if (WORDS.includes(guessString) == false) {
+      let delay = 200
+      setTimeout(()=> {
           alert("Word not in list!");
+      }, delay)
           return
     }
 
     for (let i = 0; i < 4; i++) {
-       let letterColor = ''
-       let box = row.children[i]
-       let letter = currentGuess[i]
+       let letterColor = '';
+       let box = row.children[i];
+       let letter = currentGuess[i];
 
-       let letterPosition = rightGuess.indexOf(currentGuess[i])
+       let letterPosition = rightGuess.indexOf(currentGuess[i]);
 
        if(letterPosition == -1){
            letterColor = 'grey'
        }else{
            if(currentGuess[i] == rightGuess[i]){
 
-               letterColor = 'green'
+               letterColor = 'green';
            }else{
 
-               letterColor = 'yellow'
+               letterColor = 'yellow';
            }
 
-           rightGuess[letterPosition] = "#"
+           rightGuess[letterPosition] = "#";
        }
 
        let delay = 250 * i
        setTimeout(()=> {
-
-           box.style.backgroundColor = letterColor
+           box.style.backgroundColor = letterColor;
+           shadeKeyboard(letter, letterColor);
        }, delay)
    }
 
 
     if(guessString == rightGuess){
-    alert("You win!");
-    guessesLeft = -1
+      let delay = 1200
+      setTimeout(()=> {
+        alert("You win!");
+      }, delay)
+
+    guessesLeft = -1;
 
     }else{
 
@@ -4154,6 +4160,27 @@ function checkGuess(){
     }
 
     if(guessesLeft == 0){
-        alert("You lose" + "\n" + "\n" + "The word was: " + rightGuess)
+      let delay = 1200
+      setTimeout(()=> {
+        alert("You lose!" + "\n" + "\n" + "The word was: " + rightGuess);
+      }, delay)
     }
+}
+
+function shadeKeyboard(letter, color){
+      for (const elem of document.getElementsByClassName("keyboard-button")){
+          if (elem.textContent == letter){
+              let oldColor = elem.style.backgroundColor
+              if (oldColor == 'green'){
+                  return;
+              }
+
+              if (oldColor == 'yellow' && color !== 'green'){
+                  return;
+              }
+
+              elem.style.backgroundColor = color
+              break
+          }
+      }
 }
