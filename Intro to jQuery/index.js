@@ -36,3 +36,7 @@ $("h1").on("mouseover", function(){
 $(document).click(function(){
   $("h1").css("color", "blue");
 });
+
+$('button').on('click', function(){
+  $('h1').toggle();
+})

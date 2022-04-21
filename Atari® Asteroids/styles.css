@@ -4,7 +4,7 @@ background-color: black;
 
 .spaceship{
 position: relative;
-margin: 30% auto 0;
+margin: 25% auto 0;
 transform: translate(-50%, -50%);
 width: 0;
 height: 0;
