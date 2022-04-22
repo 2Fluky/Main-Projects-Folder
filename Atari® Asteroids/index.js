@@ -19,16 +19,18 @@ $(document).keydown(function(){
       spaceship.css({'transform': 'translate(-50%, -50%) rotate('+ newDeg +'deg)' });
         break;
     case "s":
-        getRandomPos();
-        spaceship.css('margin-top', x);
-        spaceship.css('margin-left', y);
+        spaceship.fadeOut(600);
+        setTimeout(getRandomPos, 600);
         break;
     }
 });
 
 function getRandomPos(){
   let windowW = $(window).width();
-  let windowH = $(window).width();
+  let windowH = $(window).height();
+  console.log(y)
   x = Math.floor(Math.random() * windowW);
   y = Math.floor(Math.random() * windowH);
+  spaceship.fadeIn(600).css('margin-top', x);
+  spaceship.css('margin-left', y);
 }
