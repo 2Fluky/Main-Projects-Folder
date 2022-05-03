@@ -16,16 +16,16 @@ $(document).keypress(function(){
   switch (event.key){
     case "a":
         angle -= 22.5;
-        spaceship.css({'transform': 'translate(-50%, -50%) rotate('+ angle +'deg)' });
+        spaceship.css({'transform': 'rotate('+ angle +'deg)' });
         break;
     case "w":
         move();
-        spaceship.css({'transform': 'translate('+ horzMove + 'px,'+ vertMove +'px) rotate('+ angle +'deg)'});
+        spaceship.css({'transform': 'translate('+ horzMove + 'px,'+ vertMove +'px) rotate('+ angle +'deg)'}); //smthn wrong with this line trust my g
         // getCurrPos();
         break;
     case "d":
         angle += 22.5;
-        spaceship.css({'transform': 'translate(-50%, -50%) rotate('+ angle +'deg)' });
+        spaceship.css({'transform': 'rotate('+ angle +'deg)' });
         break;
     case "s":
         spaceship.fadeOut(600);
