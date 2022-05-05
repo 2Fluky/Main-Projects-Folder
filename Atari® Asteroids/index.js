@@ -14,18 +14,22 @@ var currY = 0;
 
 $(document).keypress(function(){
   switch (event.key){
-    case "a":
+      case "a":
         angle -= 22.5;
-        spaceship.css({'transform': 'translate(-50%, -50%) rotate('+ angle +'deg)' });
+        var currX = 0;
+        var currY = 0;
+        spaceship.css({'transform': 'translate('+ horzMove + 'px,'+ vertMove +'px) rotate('+ angle +'deg)' });
         break;
     case "w":
         move();
-        spaceship.css({'transform': 'translate('+ horzMove + 'px,'+ vertMove +'px) rotate('+ angle +'deg)'});
-        getCurrPos();
+        spaceship.css({'transform': 'translate('+ horzMove + 'px,'+ vertMove +'px) rotate('+ angle +'deg)'}); //smthn wrong with this line trust my g
+        // getCurrPos();
         break;
     case "d":
         angle += 22.5;
-        spaceship.css({'transform': 'translate(-50%, -50%) rotate('+ angle +'deg)' });
+        var currX = 0;
+        var currY = 0;
+        spaceship.css({'transform': 'translate('+ horzMove + 'px,'+ vertMove +'px) rotate('+ angle +'deg)' });
         break;
     case "s":
         spaceship.fadeOut(600);
