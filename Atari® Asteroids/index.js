@@ -21,7 +21,7 @@ $(document).keypress(function(){
     case "w":
         move();
         spaceship.css({'transform': 'translate('+ horzMove + 'px,'+ vertMove +'px) rotate('+ angle +'deg)'});
-        // getCurrPos();
+        getCurrPos();
         break;
     case "d":
         angle += 22.5;
@@ -49,9 +49,9 @@ function move(){
   vertMove -= (Math.cos(deg) * hypotenuse);
 }
 
-// function getCurrPos(){
-// let offsets = spaceship.offset();
-// currY = (offsets.top + 'px');
-// currX = (offsets.left + 'px');
-// console.log(currY, currX)
-// }
+function getCurrPos(){
+let offsets = spaceship.offset();
+currY = (offsets.top + 'px');
+currX = (offsets.left + 'px');
+console.log(currY, currX);
+}
