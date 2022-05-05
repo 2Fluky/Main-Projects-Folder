@@ -8,7 +8,6 @@ var spaceship = $(".spaceship");
 var radian = 0.0174533;
 var currX = 0;
 var currY = 0;
-var offScreen = 0;
 // var offsets = $('spaceship').offset();
 // var top = offsets.top;
 // var left = offsets.left;
@@ -51,50 +50,23 @@ $(document).keypress(function(){
 function checkOnScreen(){
   let elem = document.querySelector('.spaceship');
   let rect = document.querySelector('.spaceship').getBoundingClientRect();
-  if(rect.top < 0 - elem.offsetHeight){
-  	offScreen = -1;
-    teleportShip(offScreen);
+  let windowW = window.innerWidth + elem.offsetWidth;
+  let windowH = window.innerHeight + elem.offsetHeight;
+  if(rect.top < 0 - elem.offsetHeight){ //if statement doesn't work after 1 time
+    spaceship.css('bottom', -windowH);
   }
 
   if(rect.left < 0 - elem.offsetWidth){
-  	offScreen = -2;
-    teleportShip(offScreen);
-  }
-
-  if(rect.bottom > window.innerHeight + elem.offsetHeight){
-  	offScreen = -3;
-    teleportShip(offScreen);
-  }
-
-  if(rect.right > window.innerWidth + elem.offsetWidth) {
-  	offScreen = -4;
-    teleportShip(offScreen);
-  }
-}
-
-function teleportShip(val){ //right and bottom don't work, *they keep going*
-  let windowW = window.innerWidth;
-  let windowH = window.innerHeight;
-  if(val == -1){
-    spaceship.css('bottom', -windowH);
-    offScreen = 0;
-  }
-
-  if(val == -2){
     spaceship.css('right', -windowW);
-    offScreen = 0;
   }
 
-  if(val == -3){
+  if(rect.bottom > windowH){
     spaceship.css('top', windowH);
-    offScreen = 0;
   }
 
-  if(val == -4) {
+  if(rect.right > windowW){
     spaceship.css('left', windowW);
-    offScreen = 0;
   }
-  return ;
 }
 
 function move(){
