@@ -52,19 +52,24 @@ function checkOnScreen(){
   let rect = document.querySelector('.spaceship').getBoundingClientRect();
   let windowW = window.innerWidth + elem.offsetWidth;
   let windowH = window.innerHeight + elem.offsetHeight;
-  if(rect.top < 0 - elem.offsetHeight){ //if statement doesn't work after 1 time
+  if(rect.top < 0 - elem.offsetHeight){ //spaceship.css isnt working
+    console.log("Triggered psoition shift");
+    spaceship.css('bottom', '');
     spaceship.css('bottom', -windowH);
   }
 
   if(rect.left < 0 - elem.offsetWidth){
+    console.log("Triggered psoition shift");
     spaceship.css('right', -windowW);
   }
 
   if(rect.bottom > windowH){
+    console.log("Triggered psoition shift");
     spaceship.css('top', windowH);
   }
 
   if(rect.right > windowW){
+    console.log("Triggered psoition shift");
     spaceship.css('left', windowW);
   }
 }
