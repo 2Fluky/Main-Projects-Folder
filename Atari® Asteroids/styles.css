@@ -13,3 +13,11 @@ border-left: 11px solid transparent;
 border-right: 11px solid transparent;
 border-bottom: 40px solid white;
 }
+
+.bullet{
+  position: absolute;
+  background-color: white;
+  width: 20px;
+  height: 20px;
+  border-radius: 20px;
+}
