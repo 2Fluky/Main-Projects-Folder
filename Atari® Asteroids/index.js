@@ -9,6 +9,7 @@ var radian = 0.0174533;
 var spaceshipX = document.querySelector('.spaceship').offsetWidth;
 var spaceshipY = document.querySelector('.spaceship').offsetHeight;
 var rect = document.querySelector('.spaceship').getBoundingClientRect();
+var status = "true";
 
 // var offsets = $('spaceship').offset();
 // var top = offsets.top;
@@ -53,41 +54,48 @@ function checkOnScreen(){
   let windowH = window.innerHeight + spaceshipY;
 
   if(rect.top < 0 - spaceshipY){
-    console.log("Triggered psoition shift");
-    spaceship.css('bottom', '');
     spaceship.css('bottom', -windowH);
   }
 
   if(rect.left < 0 - spaceshipX){
-    console.log("Triggered psoition shift");
     spaceship.css('right', -windowW);
   }
 
   if(rect.bottom > windowH){
-    console.log("Triggered psoition shift");
     spaceship.css('top', windowH);
   }
 
   if(rect.right > windowW){
-    console.log("Triggered psoition shift");
     spaceship.css('left', windowW);
   }
 }
 
 function shoot() {
-    $('body').append($('<div>').addClass('bullet').css({'left': rect.left,'top': rect.top + (spaceshipY/1.5)}));
+    $('body').append($('<div>').addClass('bullet').css({'left': rect.left,'top': rect.top})); //not a problem w/ the css
 }
+
 let horzMoveBullet = 0;
 let vertMoveBullet = 0;
+let deg = angle * radian;
+let index = -1;
 function update() {
     $('.bullet').each(function() {
-        let deg = angle * radian;
         horzMoveBullet += (Math.sin(deg) * hypotenuse);
         vertMoveBullet -= (Math.cos(deg) * hypotenuse);
         $(this).css({'transform': 'translate('+ horzMoveBullet + 'px,'+ vertMoveBullet +'px)'});
     });
 }
 setInterval(update, 30);
+setInterval(delBullet, 4000);
+
+
+function delBullet(){
+let elem = $('.bullet').eq('0');
+if(elem.length == 0){
+  return;
+}
+elem.remove();
+}
 
 function move(){
   let deg = angle * radian;
