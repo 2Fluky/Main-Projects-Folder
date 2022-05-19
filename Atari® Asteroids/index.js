@@ -8,8 +8,10 @@ var spaceship = $(".spaceship");
 var radian = 0.0174533;
 var spaceshipX = document.querySelector('.spaceship').offsetWidth;
 var spaceshipY = document.querySelector('.spaceship').offsetHeight;
-var rect = document.querySelector('.spaceship').getBoundingClientRect();
-var status = "true";
+var shootDeg = 0;
+var horzMoveBullet = 0;
+var vertMoveBullet = 0;
+var shotDelay = 0;
 
 // var offsets = $('spaceship').offset();
 // var top = offsets.top;
@@ -35,7 +37,10 @@ $(document).keypress(function(){
         // setTimeout(getRandomPos, 600); //might have to change position to fixed
         break;
     case " ":
-        shoot();
+        if(shotDelay == 0){
+          shotDelay = 1;
+          shoot();
+        }
         break;
     }
 });
@@ -50,6 +55,7 @@ $(document).keypress(function(){
 //   spaceship.css('left', yPoint);
 // }
 function checkOnScreen(){
+  let rect = document.querySelector('.spaceship').getBoundingClientRect();
   let windowW = window.innerWidth + spaceshipX;
   let windowH = window.innerHeight + spaceshipY;
 
@@ -71,18 +77,19 @@ function checkOnScreen(){
 }
 
 function shoot() {
-    $('body').append($('<div>').addClass('bullet').css({'left': rect.left,'top': rect.top})); //not a problem w/ the css
+    let rect = document.querySelector('.spaceship').getBoundingClientRect();
+    $('body').append($('<div>').addClass('bullet').css({'left': rect.left,'top': rect.top}));
+    shootDeg = angle * radian;
+    horzMoveBullet = 0;
+    vertMoveBullet = 0;
 }
 
-let horzMoveBullet = 0;
-let vertMoveBullet = 0;
-let deg = angle * radian;
-let index = -1;
 function update() {
     $('.bullet').each(function() {
-        horzMoveBullet += (Math.sin(deg) * hypotenuse);
-        vertMoveBullet -= (Math.cos(deg) * hypotenuse);
-        $(this).css({'transform': 'translate('+ horzMoveBullet + 'px,'+ vertMoveBullet +'px)'});
+        horzMoveBullet += (Math.sin(shootDeg) * hypotenuse);
+        vertMoveBullet -= (Math.cos(shootDeg) * hypotenuse);
+        console.log(horzMoveBullet, vertMoveBullet)
+        $(this).css({'transform': 'translate('+ horzMoveBullet +'px,'+ vertMoveBullet +'px)'});
     });
 }
 setInterval(update, 30);
@@ -95,6 +102,7 @@ if(elem.length == 0){
   return;
 }
 elem.remove();
+shotDelay = 0;
 }
 
 function move(){
