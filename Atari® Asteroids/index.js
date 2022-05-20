@@ -61,6 +61,7 @@ function checkOnScreen(){
 
   if(rect.top < 0 - spaceshipY){
     spaceship.css('bottom', -windowH);
+    console.log(rect.top)
   }
 
   if(rect.left < 0 - spaceshipX){
